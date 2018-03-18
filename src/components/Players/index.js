@@ -15,6 +15,7 @@ const Players = (props) => {
              key={player.name}
              updatePlayerScore={props.updatePlayerScore}
              removePlayer={() => props.removePlayer(index)}
+             updatePlayerIndex={props.updatePlayerIndex}
            />
          );
        }.bind(this))}
