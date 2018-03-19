@@ -24,6 +24,8 @@ const initialState = {
 }
 
 export default function Player(state=initialState, action){
+  let date = new Date()
+  let today = date.getDate() + '/' + (date.getMonth() + 1)+ '/' + date.getFullYear();
   switch(action.type) {
     case PlayerActionTypes.ADD_PLAYER:
     return {
@@ -31,7 +33,9 @@ export default function Player(state=initialState, action){
         ...state.players,
         {
           name: action.name,
-          score: 0
+          score: 0, 
+          created: today,
+          updated: today
         }
       ],
       selectedPlayerIndex: state.selectedPlayerIndex
@@ -54,7 +58,8 @@ export default function Player(state=initialState, action){
           console.log(action);
           return {
             ...player,
-            score: player.score + action.score
+            score: player.score + action.score,
+            updated: today
           }
         }
         return player;

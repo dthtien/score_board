@@ -23,6 +23,11 @@ class Scoreboard extends Component {
     const removePlayer = bindActionCreators(PlayerActionCreators.removePlayer, dispatch);
     const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayerScore, dispatch);
     const updatePlayerIndex = bindActionCreators(PlayerActionCreators.updatePlayerIndex, dispatch);
+
+    let selectedPlayer;
+    if (selectedPlayerIndex !== -1) {
+      selectedPlayer = players[selectedPlayerIndex]
+    }
     return(
       <div className="scoreboard">
         <Header players={players} />
@@ -36,8 +41,7 @@ class Scoreboard extends Component {
 
         <AddPlayerForm addPlayer={addPlayer} />
         <PlayerDetail 
-          selectedPlayerIndex={selectedPlayerIndex} 
-          players={players}
+          selectedPlayer={selectedPlayer}
           />
       </div>
     );

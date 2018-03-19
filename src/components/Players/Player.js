@@ -6,11 +6,10 @@ import Counter from './Counter';
 const Player = props =>  {
   return (
     <div className="player">
-      <div className="player-name">
+      <div className="player-name"  onClick={() => props.updatePlayerIndex(props.index)}>
         <a className="remove-player" 
           onClick={() => props.removePlayer(props.index)}>✖</a>
-        <a onClick={() => props.updatePlayerIndex(props.index)}>
-          {props.name}</a>
+          {props.name}
       </div>
       <div className="player-score">
         <Counter 

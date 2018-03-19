@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 
 const PlayerDetail = (props) => {
-  console.log(props.selectedPlayerIndex);
-  const selectedPlayerIndex = props.selectedPlayerIndex;
-  if(selectedPlayerIndex !== -1 ){
-    const player = props.players[selectedPlayerIndex];
+  if(props.selectedPlayer){
+    const player = props.selectedPlayer;
     return (
       <div>
         <h3>{ player.name }</h3>
